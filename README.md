@@ -20,7 +20,7 @@ This project was created with the intention of developing and challenging me whi
 
 ```bash
 # clone repository
-git clone
+git clone git@github.com:SystemOfLima/send-email.git
 
 # install dependencies
 pnpm i
