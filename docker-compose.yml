@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: sendEmail
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=sendEmail
+      - MONGO_INITDB_ROOT_PASSWORD=sendEmail
+      - MONGO_INITDB_ROOT_DATABASE=sendEmail
+      - MONGO_INITDB_DATABASE=sendEmail
+    ports:
+      - "27050:27017"
+    volumes:
+      - mongodb:/data
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - host
+
+volumes:
+  mongodb:
+    driver: local
+
+networks:
+  host:
